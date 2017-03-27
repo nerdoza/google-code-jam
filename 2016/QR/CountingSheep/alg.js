@@ -1,7 +1,8 @@
 require('../../../run')((v) => {
   if (parseInt(v) !== 0) {
     let valueCheck = new Array(10).fill(false)
-    let isFulfilled = () => {
+
+    let isFulfilled = function () {
       return valueCheck.reduce((acc, check) => {
         return acc && check
       }, true)
