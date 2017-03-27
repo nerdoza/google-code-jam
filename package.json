@@ -5,6 +5,7 @@
   "author": "Zachary Cardoza",
   "license": "MIT",
   "dependencies": {
+    "big-integer": "^1.6.17",
     "colors": "^1.1.2"
   }
 }
