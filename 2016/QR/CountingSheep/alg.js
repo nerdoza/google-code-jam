@@ -1,3 +1,5 @@
+// Problem: https://code.google.com/codejam/contest/6254486/dashboard#s=p0
+
 require('../../../run')((v) => {
   if (parseInt(v) !== 0) {
     let valueCheck = new Array(10).fill(false)

@@ -1,3 +1,5 @@
+// Problem: https://code.google.com/codejam/contest/6254486/dashboard#s=p1
+
 require('../../../run')((v) => {
   let chars = [...v.replace(/(\r\n|\n|\r)/gm, '')]
   let stackState = chars.map(r => { return r === '+' })
