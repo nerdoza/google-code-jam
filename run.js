@@ -1,7 +1,8 @@
 require('colors')
-var fs = require('fs')
-var sourceFileName = process.argv[2]
-var resultFileName = process.argv[3]
+const fs = require('fs')
+const sourceFileName = process.argv[2]
+const resultFileName = process.argv[3]
+const startTime = process.hrtime()
 
 var run = function (algorithm) {
   fs.readFile(sourceFileName, 'utf8', function (err, sourceContent) {
@@ -17,7 +18,13 @@ var run = function (algorithm) {
 
     fs.writeFile(resultFileName, output, 'utf8', err => {
       if (err) return console.log(('Error: ' + err).red)
-      console.log(('Success: ' + (sourceInputs.length) + ' line' + ((sourceInputs.length > 1) ? 's' : '') + ' processed').green)
+      const endTime = process.hrtime(startTime)
+      console.log((
+        'Success: ' + (sourceInputs.length) +
+        ' line' + ((sourceInputs.length > 1) ? 's' : '') +
+        ' processed in %ds').green,
+        (endTime[0] + (endTime[1] / 1000000000)).toFixed(3)
+      )
     })
   })
 }
