@@ -7,15 +7,20 @@ require('../../../run')((v) => {
   const C = parseInt(v.split(' ')[1])
   const S = parseInt(v.split(' ')[2])
 
-  if (C === 1 || K === 1) {
-    if (S < K) return IMPOSSIBLE
-    return [...Array(K)].map((x, i) => i + 1).join(' ')
+  if (S * C < K) return IMPOSSIBLE
+
+  let tiles = []
+  for (let i = 0; i < K; i += C) {
+    let idx = BigInt(0)
+    let current = i
+
+    for (let j = 0; j < C; j++) {
+      idx = idx.multiply(K).add(current)
+      if (current < K - 1) current++
+    }
+
+    tiles.push(idx.plus(1).toString())
   }
 
-  if (S < Math.ceil(K / C)) return IMPOSSIBLE
-  let tiles = []
-  for (let p = 0; p <= S; p++) {
-    // tiles.push(BigInt(K).pow(C - 1).multiply(p).add(p).add(2).toString())
-  }
   return tiles.join(' ')
 })
