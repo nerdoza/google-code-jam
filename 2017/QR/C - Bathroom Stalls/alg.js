@@ -11,7 +11,6 @@ require('../../../run')((v) => {
 
   let gaps = [{ size: InitialStallCount, quantity: BigInt(1) }]
   let queueCount = BigInt(InitialQueueCount)
-  console.log('Starting: ' + v)
 
   while (true) {
     gaps.sort((a, b) => b.size.minus(a.size))
@@ -30,7 +29,7 @@ require('../../../run')((v) => {
     newGaps.push(div.quotient)
     newGaps.forEach(targetGap => {
       if (targetGap.gt(0)) {
-        let gapTracker = gaps.find(g => g.size === targetGap)
+        let gapTracker = gaps.find(g => g.size.equals(targetGap))
         if (!gapTracker) {
           gapTracker = { size: targetGap, quantity: BigInt(0) }
           gaps.push(gapTracker)
