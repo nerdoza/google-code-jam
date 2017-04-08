@@ -21,7 +21,7 @@ var run = function (algorithm) {
       const endTime = process.hrtime(startTime)
       console.log((
         'Success: ' + (sourceInputs.length) +
-        ' line' + ((sourceInputs.length > 1) ? 's' : '') +
+        ' case' + ((sourceInputs.length > 1) ? 's' : '') +
         ' processed in %ds').green,
         (endTime[0] + (endTime[1] / 1000000000)).toFixed(3)
       )
