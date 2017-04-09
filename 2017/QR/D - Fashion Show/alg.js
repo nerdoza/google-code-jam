@@ -54,6 +54,11 @@ run((v) => {
     let ms = m.split(' ')
     return { x: parseInt(ms[1]), y: parseInt(ms[2]), type: ms[0] }
   })
+  const OriginalModels = models.concat()
+
+  let commitModel = (model) => {
+
+  }
 
   logGrid(N, models)
 
